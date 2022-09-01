@@ -38,16 +38,16 @@ function getPlayerChoice()
 
 function playRound(playerChoice)
 {
-    computerChoice=getComputerChoice();
     result = -2;
     while (playerChoice==4)
     {
         playerChoice=getPlayerChoice();
     }
+    computerChoice=getComputerChoice();
     if (playerChoice==computerChoice)
     {
         result =0;
-    }
+    } 
     else if (playerChoice==0 && computerChoice==1)
     {
         result= -1;
@@ -55,7 +55,7 @@ function playRound(playerChoice)
     else if (playerChoice==0 && computerChoice==2)
     {
         result= 1;
-    }
+    } 
     else if (playerChoice==1 && computerChoice==0)
     {
         result= 1;
