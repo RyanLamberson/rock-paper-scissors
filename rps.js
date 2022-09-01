@@ -91,6 +91,26 @@ function playRound(playerChoice)
     }
     return result;
 }
+function game()
+{
+    score =0;
+    for (let i = 0; i < 5; i++)
+    {
+        score = score + playRound(getPlayerChoice());
+    }
+    if (score > 0)
+    {
+        console.log("Player wins!");
+    }
+    else if (score==0)
+    {
+        console.log("Tie!");
+    }
+    else
+    {
+        console.log("Computer wins!");
+    }
 
-
-console.log(playRound(getPlayerChoice()));
+    return "Final Score: " + score;
+}
+console.log(game());
