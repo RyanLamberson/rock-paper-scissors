@@ -4,11 +4,14 @@ function getComputerChoice ()
     choice = temp % 3;
     switch (choice) {
         case 0:
-            return "Rock";
+            console.log("Computer chooses Rock");
+            return 0;
         case 1:
-            return "Paper";
+            console.log("Computer chooses Paper");
+            return 1;
         case 2:
-            return "Scissors";
+            console.log("Computer chooses Scissors");
+            return 2;
         
     }
 }
@@ -17,22 +20,77 @@ function getPlayerChoice()
     inputText = prompt("Rock, paper, scissors, SHOOT!", "???")
     if (inputText.toUpperCase().localeCompare("ROCK")==0)
     {
-        return "Rock";
+        return 0;
     }
     else if (inputText.toUpperCase().localeCompare("SCISSORS")==0)
     {
-        return "Scissors";
+        return 2;
     }
     else if (inputText.toUpperCase().localeCompare("PAPER")==0)
     {
-        return "Paper";
+        return 1;
     }
     else
     {
-        return "Invalid";
+        return 4;
     }
 }
 
-console.log(getPlayerChoice());
+function playRound(playerChoice)
+{
+    computerChoice=getComputerChoice();
+    result = -2;
+    while (playerChoice==4)
+    {
+        playerChoice=getPlayerChoice();
+    }
+    if (playerChoice==computerChoice)
+    {
+        result =0;
+    }
+    else if (playerChoice==0 && computerChoice==1)
+    {
+        result= -1;
+    }
+    else if (playerChoice==0 && computerChoice==2)
+    {
+        result= 1;
+    }
+    else if (playerChoice==1 && computerChoice==0)
+    {
+        result= 1;
+    }
+    else if (playerChoice==1 && computerChoice==2)
+    {
+        result= -1;
+    }
+    else if (playerChoice==2 && computerChoice==0)
+    {
+        result= -1;
+    }
+    else if (playerChoice==2 && computerChoice==1)
+    {
+        result= 1;
+    }
+
+    if (result==-1)
+    {
+        console.log("Computer wins this round.");
+    }    
+    else if (result==1)
+    {
+        console.log("Player wins this round.");
+    }
+    else if (result==0)
+    {
+        console.log("Tie round.")
+    }
+    else
+    {
+        console.log("Error: " + playerChoice + " : "+computerChoice);
+    }
+    return result;
+}
 
 
+console.log(playRound(getPlayerChoice()));
