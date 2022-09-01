@@ -12,4 +12,27 @@ function getComputerChoice ()
         
     }
 }
-console.log(getComputerChoice());
+function getPlayerChoice()
+{
+    inputText = prompt("Rock, paper, scissors, SHOOT!", "???")
+    if (inputText.toUpperCase().localeCompare("ROCK")==0)
+    {
+        return "Rock";
+    }
+    else if (inputText.toUpperCase().localeCompare("SCISSORS")==0)
+    {
+        return "Scissors";
+    }
+    else if (inputText.toUpperCase().localeCompare("PAPER")==0)
+    {
+        return "Paper";
+    }
+    else
+    {
+        return "Invalid";
+    }
+}
+
+console.log(getPlayerChoice());
+
+
